@@ -9,4 +9,30 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>client</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.selenium</groupId>
+            <artifactId>proto</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.selenium</groupId>
+            <artifactId>codec</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.selenium</groupId>
+            <artifactId>transport</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.selenium</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
+    </dependencies>
 </project>
