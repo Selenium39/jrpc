@@ -43,8 +43,8 @@ public class RpcServer {
                 e.printStackTrace();
                 log.error(e.getMessage(), e);
                 response.setCode(-1);
-                response.setMsg("RpcServer error: "+e.getMessage());
-            }finally {
+                response.setMsg("RpcServer error: " + e.getMessage());
+            } finally {
                 byte[] bytes = encoder.encode(response);
                 try {
                     out.write(bytes);
@@ -54,6 +54,10 @@ public class RpcServer {
             }
         }
     };
+
+    public RpcServer() {
+        this(new RpcServerConfig());
+    }
 
     public RpcServer(RpcServerConfig config) {
         this.config = config;
