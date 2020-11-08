@@ -1,6 +1,7 @@
 package com.selenium.transport;
 
 import com.selenium.grpc.Peer;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
@@ -12,18 +13,20 @@ import java.net.URLConnection;
 /**
  * 基于Http(HttpURLConnection)的客户端:短连接
  */
+@Slf4j
 public class HttpTransportClient implements TransportClient {
     private String url;
 
     @Override
     public void connect(Peer peer) {
-        this.url = "http://" + peer.getHost() + ":" + peer.getHost();
+        this.url = "http://" + peer.getHost() + ":" + peer.getPort();
     }
 
     @Override
     public InputStream write(InputStream data) {
         try {
-            HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+            log.info("URL:" + this.url);
+            HttpURLConnection connection = (HttpURLConnection) new URL(this.url).openConnection();
             //是否能够向connection中输入,如发送post请求,默认是false
             connection.setDoOutput(true);
             connection.setDoInput(true);
